@@ -1,0 +1,13 @@
+<h1><%=@destination.name%></h1>
+
+<% Post.all.select do |post|%>
+<% if post.destination_id == @destination.id%>
+<li><%=post.maximum(:updated_at)%></li>
+<%end%>
+<%end%>
+
+
+<br>
+@posts = Post.includes(:comments).order("created_at desc").limit(4)
+
+<p>Find me in app/views/destinations/show.html.erb</p>

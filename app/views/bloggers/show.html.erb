@@ -2,11 +2,15 @@
 
 <% blogger_posts = Post.all.select do |post| %>
     <% post.blogger_id == @blogger.id %>
-    <% blogger_posts %>
+<%
+byebug
+%>
+
+
 <% end %>
 
 <% total = 0 %>
-<% blogger_posts.map do |post| %>
+<% blogger_posts.each do |post| %>
     <% total += post.likes %>
     <%= total %>
 <% end %>
