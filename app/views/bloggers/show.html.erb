@@ -1,0 +1,18 @@
+<h1><%= @blogger.name %></h1>
+
+<% blogger_posts = Post.all.select do |post| %>
+    <% post.blogger_id == @blogger.id %>
+    <% blogger_posts %>
+<% end %>
+
+<% total = 0 %>
+<% blogger_posts.map do |post| %>
+    <% total += post.likes %>
+    <%= total %>
+<% end %>
+
+ <p> blogger total likes <%= total %></p>
+
+
+
+
